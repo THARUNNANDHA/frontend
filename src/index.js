@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import App from './App';
+import Nav from "./components/Navbar"
+import Carousel from "./components/Carousel"
+import Belowcarasule from './components/Belowcarasule';
+import Part4 from './components/Part4';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Nav />
+    <Carousel />
+    <Belowcarasule/>
+    <Part4 />
   </React.StrictMode>
 );
 

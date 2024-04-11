@@ -1,0 +1,103 @@
+.container{
+    width: 100%;
+    height:599px;
+    margin: auto;
+    background-color: #F5F7FA;
+}
+.item{
+    display: flex;
+}
+.images{
+    width: 391px;
+    height: 407px;
+}
+.carousel-control{
+    background-image: unset;
+    
+}
+.carousel-control.left{
+    background-image: unset;
+    
+}
+.carousel-control.right{
+    background-image: unset;
+}
+.glyphicon-chevron-left:before{
+    color: #4CAF4F;
+}
+
+.glyphicon-chevron-right:before {
+    color: #4CAF4F;
+}
+
+.carousel-indicators li {
+    background-color: #4CAF4F;
+}
+.carousel-indicators .active {
+    background-color:black;
+}
+
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+.carousel-inner>.active {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; /* Align items to the end of the container */
+    justify-content: space-between;
+}
+.images{
+    top: 500px;
+}
+.carousel-inner>.item>.images {
+    
+    margin-top: 96px;
+    margin-right: 144px;
+    width: 391px;
+    height: 407px;
+
+
+}
+.carousel-inner>.item>.headings{
+    width:657px;
+    height:276px;
+    gap: 16px;
+    margin-left: 144px;
+    margin-bottom: 60px;
+}
+.carousel-inner>.item>.headings>h3{
+    font-family: Inter;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 76px;
+    text-align: left;
+
+}
+
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s; /* Adjust the transition duration here */
+}
+.carousel-inner>.item>.headings>button{
+    width: 128px;
+    height: 52px;
+    padding: 14px 32px 14px 32px;
+    gap: 10px;
+    border-radius: 4px 0px 0px 0px;
+    background-color: #4CAF4F;
+    color: white;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+

@@ -1,0 +1,21 @@
+.outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 530px;
+    height: 550px;
+    margin: auto;
+    border: 2px solid black;
+}
+form{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 300px;
+}
+form> label{
+    font-size: medium;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

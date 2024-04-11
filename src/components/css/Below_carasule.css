@@ -1,0 +1,24 @@
+.heading_below_carasole{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: Hug (76px)px;
+    gap: 8px;
+    margin: auto;
+
+}
+.outer_below_carasole{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+.logos_below_carasole{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:144px ;
+    padding-right:144px ;
+
+}
