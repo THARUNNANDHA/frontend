@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App1.css'
+import './css/Signup.css'
 
-function App1({users}) {
+function Fetchuserdata({users}) {
     console.log(users);
     const [formData, setFormData] = useState({
         name: '',
@@ -21,14 +21,14 @@ function App1({users}) {
         e.preventDefault();
         // const{email} = formData
         const exist_email = users.some(user => user.email === formData.email)
-        const exist_name = users.some(user => user.name === formData.username)
-        console.log(formData.name)
+        const exist_name = users.some(user => user.name === formData.name)
         if(exist_email){
             alert('Email already exists');
         }
-        // else if(exist_name){
-        //     alert('Name already exists');
-        // }
+        else if(exist_name){
+            console.log(formData.name)
+            alert('Name already exists');
+        }
         else{
             axios.post('/api/data', formData)
             .then(response => {
@@ -44,7 +44,7 @@ function App1({users}) {
     };
 
     return (
-        <div className='outer'>
+        <div className='Signup_outer'>
                 {/* {users.map(user=>(
                     <h1>{user.username}</h1>
                 ))} */}
@@ -60,4 +60,4 @@ function App1({users}) {
     );
 }
 
-export default App1;
+export default Fetchuserdata;

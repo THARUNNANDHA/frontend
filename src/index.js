@@ -1,21 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import reportWebVitals from './reportWebVitals';
-// import App from './App';
-import Nav from "./components/Navbar"
-import Carousel from "./components/Carousel"
-import Belowcarasule from './components/Belowcarasule';
-import Part4 from './components/Part4';
+import Fetchuserdata from './hooks/Fetchuserdata';
+// import Nav from "./components/Navbar"
+// import Carousel from "./Carousel"
+// import Belowcarasule from './Belowcarasule';
+// import Part4 from './Part4';
+// import Signup from './Signup'
+import Products_display from './Products_display';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Nav />
+    {/* <Nav /> */}
+    <Fetchuserdata 
+      api='/data'
+      func={Products_display} 
+    />
+    {/* <Nav />
     <Carousel />
     <Belowcarasule/>
-    <Part4 />
+    <Part4 /> */}
+    
   </React.StrictMode>
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import icon from "./images/Icon.png"
-import "./css/Navbar.css"
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import icon from "../images/Icon.png"
+import "../css/Navbar.css"
 
 export default function Navbar(){
 return(

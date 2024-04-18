@@ -32,14 +32,14 @@
 // export default App;
 
 import React, { useState, useEffect } from 'react';
-import App1 from './App1'
 
 
-export default function App() {
+
+export default function App(props) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('/data')
+        fetch(props.api)
             .then(response => response.json())
             .then(data => { 
                 setUsers(data);
@@ -47,6 +47,7 @@ export default function App() {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
     
-    return <App1 users={users}/>
+    return <props.func users={users}/>
 }
+
 // // {users.length === 0 ? (<p>Loading...</p>) : (<ul>{users.map(user => (<li key={user.id}>{user.username} - {user.email}</li>))}</ul>)}
