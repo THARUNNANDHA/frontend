@@ -20,7 +20,6 @@ export default function Products_display(props){
     })
     return(
         <div className='all_outer_product_data' >
-            <Nav />
             <Createitem data={props.users}/>
             <div className='outer_product_data'>
                 {product_list}
