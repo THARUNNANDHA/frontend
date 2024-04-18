@@ -50,7 +50,7 @@ export default function Navbar() {
                 </div>
 
                 <div className='signin_login'>
-                    <button className='login_button'>Login</button>
+                    <Link to="/product"><button className='login_button'>Login</button></Link>
                     <button className='sign_button'>Sign up</button>
                 </div>
             </div>

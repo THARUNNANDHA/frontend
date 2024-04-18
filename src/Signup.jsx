@@ -8,7 +8,7 @@ function Fetchuserdata({users}) {
         name: '',
         email: ''
     });
-
+    console.log(formData);
     const handleChange = (e) => {
         setFormData({
             ...formData,
