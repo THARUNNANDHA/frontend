@@ -44,14 +44,12 @@ export default function Navbar() {
                     <ul className='list_items'>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/product">Products</Link></li>
-
-                        {/* Additional menu items can be added here */}
                     </ul>
                 </div>
 
                 <div className='signin_login'>
-                    <Link to="/product"><button className='login_button'>Login</button></Link>
-                    <button className='sign_button'>Sign up</button>
+                    <button className='sign_button'>Login</button>
+                    <Link to="/signup"><button className='login_button'>Sign up</button></Link>
                 </div>
             </div>
             <Outlet/>

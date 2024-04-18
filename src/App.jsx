@@ -8,6 +8,7 @@ import Belowcarasule from './Belowcarasule';
 import Part4 from './Part4';
 // import Signup from './Signup'
 import Products_display from './Products_display';
+import Signup from './Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
@@ -23,7 +24,8 @@ export default function App() {
                             <Part4 />
                         </div>
                     }/>
-                    <Route path="product" element={<Fetchuserdata api="/data" func={Products_display} />} /> 
+                    <Route path="product" element={<Fetchuserdata api="/product_item_data" func={Products_display} />} />
+                    <Route path="signup" element ={<Fetchuserdata api="/user_data" func={Signup} />} />  
                 </Route>
             </Routes>
         </BrowserRouter>

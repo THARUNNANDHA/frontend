@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from "./components/Navbar"
 import Productdisplaycard from "./components/Productdisplaycard"
 // import im from "./images/rafiki.png"
 import Createitem from "./components/Createitem"
@@ -10,6 +9,7 @@ export default function Products_display(props){
         // {`../images/${user.image_src}`}
         return (
             <Productdisplaycard 
+                key={user.id}
                 src={require(`./images/${user.image_src}`)}
                 heading={user.title}
                 para={user.description}

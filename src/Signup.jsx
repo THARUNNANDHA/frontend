@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './css/Signup.css'
 
-function Fetchuserdata({users}) {
+function Signup({users}) {
     console.log(users);
     const [formData, setFormData] = useState({
         name: '',
@@ -60,4 +60,4 @@ function Fetchuserdata({users}) {
     );
 }
 
-export default Fetchuserdata;
+export default Signup;
