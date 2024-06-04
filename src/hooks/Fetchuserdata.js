@@ -33,21 +33,29 @@
 
 import React, { useState, useEffect } from 'react';
 
-
-
 export default function App(props) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch(props.api)
-            .then(response => response.json())
-            .then(data => { 
+        const fetchData = async () => {
+            try {
+                const response = await fetch(props.api);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
                 setUsers(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [props.api]);
     
-    return <props.func users={users}/>
+    return <props.func users={users}/>;
+    // return <Route element={<props.func users={users} />} />;
 }
+
 
 // // {users.length === 0 ? (<p>Loading...</p>) : (<ul>{users.map(user => (<li key={user.id}>{user.username} - {user.email}</li>))}</ul>)}

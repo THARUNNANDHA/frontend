@@ -48,7 +48,7 @@ export default function Navbar() {
                 </div>
 
                 <div className='signin_login'>
-                    <button className='sign_button'>Login</button>
+                    <Link to="/login"><button className='sign_button'>Login</button></Link>
                     <Link to="/signup"><button className='login_button'>Sign up</button></Link>
                 </div>
             </div>

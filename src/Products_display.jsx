@@ -6,7 +6,10 @@ import Createitem from "./components/Createitem"
 
 export default function Products_display(props){
     const product_list =props.users.map(user =>{
-        // {`../images/${user.image_src}`}
+        if (!user.image_src) {
+            // Handle case where image_src is undefined
+            return null; // Skip rendering this product card
+        }
         return (
             <Productdisplaycard 
                 key={user.id}

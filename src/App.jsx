@@ -1,6 +1,5 @@
 import React from 'react';
 import './css/index.css';
-import reportWebVitals from './reportWebVitals';
 import Fetchuserdata from './hooks/Fetchuserdata';
 import Nav from "./components/Navbar"
 import Carousel from "./Carousel"
@@ -10,7 +9,8 @@ import Part4 from './Part4';
 import Products_display from './Products_display';
 import Signup from './Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import Login from './Login';
+import Forgotpassword from './Forgotpassword'
 
 export default function App() {
     return (
@@ -26,6 +26,8 @@ export default function App() {
                     }/>
                     <Route path="product" element={<Fetchuserdata api="/product_item_data" func={Products_display} />} />
                     <Route path="signup" element ={<Fetchuserdata api="/user_data" func={Signup} />} />  
+                    <Route path="login" element ={<Fetchuserdata api="/user_data" func={Login} />} />
+                    <Route path="forgot_password" element ={<Fetchuserdata api="/user_data" func={Forgotpassword} />} />  
                 </Route>
             </Routes>
         </BrowserRouter>
@@ -47,4 +49,3 @@ export default function App() {
 //   </React.StrictMode>
 // );
 
-reportWebVitals();

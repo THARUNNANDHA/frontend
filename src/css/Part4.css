@@ -185,7 +185,7 @@
 .create_update_form{
     display: flex;
     flex-direction: column;
-    width:300px;
+    width:290px;
     height: 350px;
     background-color: #4CAF4F;
     padding: 10px;
