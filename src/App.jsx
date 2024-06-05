@@ -11,7 +11,7 @@ import Signup from './Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Forgotpassword from './Forgotpassword'
-
+import Homepage from './Homepage';
 export default function App() {
     return (
         <BrowserRouter>
@@ -19,9 +19,7 @@ export default function App() {
                 <Route path="/" element={<Nav />}>
                     <Route index element={
                         <div>
-                            <Carousel />
-                            <Belowcarasule/>
-                            <Part4 />
+                            <Homepage/>
                         </div>
                     }/>
                     <Route path="product" element={<Fetchuserdata api="/product_item_data" func={Products_display} />} />
