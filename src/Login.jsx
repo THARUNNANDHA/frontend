@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './css/Signup.css'
 import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function Login({users}) {
     const [users1, setusers1] = useState(null); // Initialize users1 state
@@ -24,6 +25,10 @@ function Login({users}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // const{email} = formData
+        axios.post("/login",{"email":formData.email,"password":formData.password})
+            // .then((response) => console.log(response))
+            .then((data) => console.log("data",data.data))
+            .catch((error) => console.log(error));
         const matches_email = users.find(user => user.email === formData.email)
         // console.log("result ",exist_email,match_password)
         if(matches_email){

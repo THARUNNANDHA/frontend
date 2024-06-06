@@ -1,22 +1,48 @@
-import React from "react";
-import Nav from "./components/Navbar"
+import React, {useState ,useEffect} from "react";
 import Carousel from "./Carousel"
 import Belowcarasule from './Belowcarasule';
 import Part4 from './Part4';
 
+
+
 export default function Homepage(){
-    var name = false;
+    const [user ,setuser] = useState(null)
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await fetch("/session_check");
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+                
+                // setuser(data);
+                console.log(data.id)
+                if(data.id === "not exist"){
+                    setuser(false)
+                    return false;
+                }
+                console.log(data.id)
+                setuser(true)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        })();
+    }, []);
+    if (user === null) {
+        return <div>Loading...</div>; // Render loading state while fetching data
+    }
     return(
         
         <div>
-            {name &&
+            {user &&
             <div>
                 <Carousel />
                 <Belowcarasule/>
                 <Part4 />
             </div>
             }
-            {!name &&
+            {!user &&
                 <h1>login first</h1>
             }
         </div>

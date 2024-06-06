@@ -33,6 +33,7 @@ import icon from "../images/Icon.png"
 import "../css/Navbar.css"
 
 export default function Navbar() {
+    
     return (
         <div>
             <div className='outer'>
