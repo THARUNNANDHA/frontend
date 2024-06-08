@@ -5,7 +5,7 @@ import Part4 from './Part4';
 
 
 
-export default function Homepage(){
+export default function Homepage({ setSharedValue }){
     const [user ,setuser] = useState(null)
     useEffect(() => {
         (async () => {
@@ -17,11 +17,20 @@ export default function Homepage(){
                 const data = await response.json();
                 
                 // setuser(data);
-                console.log(data.id)
+                console.log(data)
                 if(data.id === "not exist"){
                     setuser(false)
                     return false;
                 }
+
+                setSharedValue(prevstate =>({
+                    ...prevstate,
+                    email:data.email,
+                    password:data.password,
+                    name:data.username
+                }))
+
+
                 console.log(data.id)
                 setuser(true)
             } catch (error) {

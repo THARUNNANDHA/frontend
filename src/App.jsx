@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import './css/index.css';
 import Fetchuserdata from './hooks/Fetchuserdata';
 import Nav from "./components/Navbar"
@@ -13,13 +13,18 @@ import Login from './Login';
 import Forgotpassword from './Forgotpassword'
 import Homepage from './Homepage';
 export default function App() {
+    const [sharedValue, setSharedValue] = useState({
+        name:"",
+        email:"",
+        password:""
+    });
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Nav />}>
+                <Route path="/" element={<Nav sharedValue={sharedValue} />}>
                     <Route index element={
                         <div>
-                            <Homepage/>
+                            <Homepage setSharedValue={setSharedValue}/>
                         </div>
                     }/>
                     <Route path="product" element={<Fetchuserdata api="/product_item_data" func={Products_display} />} />
