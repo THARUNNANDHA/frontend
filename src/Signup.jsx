@@ -25,7 +25,7 @@
 //         password:''
 //     });
 
-    
+
 //     // console.log(formData);
 //     const handleChange = (e) => {
 //         setFormData({
@@ -59,9 +59,9 @@
 //             });
 //             alert('Date inserted successfully');
 //         }
-        
+
 //     };
-    
+
 
 //     return (
 //         <div className='Signup_outer'>
@@ -93,9 +93,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Signup({ users }) {
 
-    const[validated_state,setvalidated_state] = useState([])
+    const [validated_state, setvalidated_state] = useState([])
     const navigate = useNavigate();
-    console.log("users",users);
+    console.log("users", users);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -129,16 +129,16 @@ function Signup({ users }) {
                 });
         }
         const fetchData = () => {
-            console.log("formdata",formData.email)
+            console.log("formdata", formData.email)
             fetch(`/validated_data`)
-            
+
                 .then(response => response.json())
                 .then(data => {
-                    console.log("validated data",data);
-                    if(data){
-                        var exist = data.find(item => item.email===formData.email)
-                        if(exist){
-                            console.log("inside fetch",exist)
+                    console.log("validated data", data);
+                    if (data) {
+                        var exist = data.find(item => item.email === formData.email)
+                        if (exist) {
+                            console.log("inside fetch", exist)
                             navigate('/');
                             clearInterval(interval);
                         }
@@ -146,14 +146,13 @@ function Signup({ users }) {
                 })
                 .catch(error => console.error("Error fetching:", error));
         };
-        fetchData();
         const interval = setInterval(fetchData, 6000);
         return () => clearInterval(interval);
     };
 
 
-        
-    
+
+
     return (
         <div className='Signup_outer'>
             <h1>Sign_up</h1>

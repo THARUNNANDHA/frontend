@@ -1,12 +1,12 @@
-import React, {useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "./Carousel"
 import Belowcarasule from './Belowcarasule';
 import Part4 from './Part4';
 
 
 
-export default function Homepage({ setSharedValue }){
-    const [user ,setuser] = useState(null)
+export default function Homepage({ setSharedValue }) {
+    const [user, setuser] = useState(null)
     useEffect(() => {
         (async () => {
             try {
@@ -15,19 +15,19 @@ export default function Homepage({ setSharedValue }){
                     throw new Error('Failed to fetch data');
                 }
                 const data = await response.json();
-                
+
                 // setuser(data);
                 console.log(data)
-                if(data.id === "not exist"){
+                if (data.id === "not exist") {
                     setuser(false)
                     return false;
                 }
 
-                setSharedValue(prevstate =>({
+                setSharedValue(prevstate => ({
                     ...prevstate,
-                    email:data.email,
-                    password:data.password,
-                    name:data.username
+                    email: data.email,
+                    password: data.password,
+                    name: data.username
                 }))
 
 
@@ -38,18 +38,19 @@ export default function Homepage({ setSharedValue }){
             }
         })();
     }, []);
+
     if (user === null) {
         return <div>Loading...</div>; // Render loading state while fetching data
     }
-    return(
-        
+    return (
+
         <div>
             {user &&
-            <div>
-                <Carousel />
-                <Belowcarasule/>
-                <Part4 />
-            </div>
+                <div>
+                    <Carousel />
+                    <Belowcarasule />
+                    <Part4 />
+                </div>
             }
             {!user &&
                 <h1>login first</h1>
