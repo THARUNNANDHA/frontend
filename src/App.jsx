@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './css/index.css';
 import Fetchuserdata from './hooks/Fetchuserdata';
 import Nav from "./components/Navbar"
-import Carousel from "./Carousel"
-import Belowcarasule from './Belowcarasule';
-import Part4 from './Part4';
 // import Signup from './Signup'
 import Products_display from './Products_display';
 import Signup from './Signup';
@@ -13,6 +10,9 @@ import Login from './Login';
 import Forgotpassword from './Forgotpassword'
 import Homepage from './Homepage';
 import axios from 'axios';
+import Admin from './Admin';
+
+
 export default function App() {
     const Usertracker = () => {
         const location = useLocation();
@@ -47,9 +47,10 @@ export default function App() {
                             <Homepage setSharedValue={setSharedValue} />
                         </div>
                     } />
-                    <Route path="product" element={<Fetchuserdata api="/product_item_data" func={Products_display} />} />
-                    <Route path="signup" element={<Fetchuserdata api="/user_data" func={Signup} />} />
-                    <Route path="login" element={<Fetchuserdata api="/user_data" func={Login} />} />
+                    <Route path="product" element={<Products_display setSharedValue={setSharedValue} />} />
+                    <Route path="signup" element={<Signup />} />
+                    <Route path="admin" element={<Admin setSharedValue={setSharedValue} />} />
+                    <Route path="login" element={<Login />} />
                     <Route path="forgot_password" element={<Fetchuserdata api="/user_data" func={Forgotpassword} />} />
                 </Route>
             </Routes>

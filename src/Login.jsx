@@ -4,11 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-function Login({ users }) {
-    const [users1, setusers1] = useState(null); // Initialize users1 state
-
+function Login() {
     const navigate = useNavigate()
-    console.log(users);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -29,7 +26,9 @@ function Login({ users }) {
             // .then((response) => console.log(response))
             .then(response => {
                 console.log("response", response.data)
-                if (response.data.success === "correct credentials")
+                if (response.data.admin === "admin")
+                    navigate("/admin")
+                else if (response.data.success === "correct credentials")
                     navigate("/")
                 else alert(response.data.fail)
             })

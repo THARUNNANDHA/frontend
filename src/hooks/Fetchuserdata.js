@@ -52,8 +52,8 @@ export default function App(props) {
 
         fetchData();
     }, [props.api]);
-    
-    return <props.func users={users}/>;
+
+    return <props.func users={users} />;
     // return <Route element={<props.func users={users} />} />;
 }
 
