@@ -3,8 +3,6 @@ import Carousel from "./Carousel"
 import Belowcarasule from './Belowcarasule';
 import Part4 from './Part4';
 
-
-
 export default function Homepage({ setSharedValue }) {
     const [user, setuser] = useState(null)
     useEffect(() => {

@@ -1,0 +1,31 @@
+.admin_outer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.admin_values {
+    width: 100vw;
+    height: 200px;
+    background-color: #00000033;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+
+
+}
+
+.admin_components {
+    height: 150px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.admin_values>h1 {
+    margin: 0;
+}

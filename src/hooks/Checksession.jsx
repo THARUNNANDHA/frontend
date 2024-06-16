@@ -31,6 +31,6 @@ export default function Checksession(url, setSharedValue) {
                 console.error('Error fetching data:', error);
             }
         })();
-    }, []);
+    }, [url, setSharedValue]);
     return user
 }

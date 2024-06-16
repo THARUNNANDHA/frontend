@@ -5,10 +5,9 @@ import Createitem from "./components/Createitem"
 import Checksession from './hooks/Checksession';
 
 export default function Products_display({ setSharedValue }) {
-    console.log("hear", setSharedValue)
     const [users, setUsers] = useState([]);
-
     const user_exist = Checksession('/session_check', setSharedValue);
+
     console.log("user_exists", user_exist)
     useEffect(() => {
         const fetchData = async () => {
