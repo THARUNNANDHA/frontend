@@ -12,13 +12,7 @@ import axios from 'axios';
 import Checksession from './hooks/Checksession';
 
 export default function App() {
-    const [sharedValue, setSharedValue] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
-    const user_exist = Checksession('/session_check', setSharedValue);
-    console.log(sharedValue);
+
     const Usertracker = () => {
         const location = useLocation();
 
@@ -31,7 +25,9 @@ export default function App() {
                     console.error("error", error);
                 }
             };
-            trackUser();
+            if (location.pathname !== "/admin") {
+                trackUser();
+            }
         }, [location]);
 
         return null;
@@ -41,15 +37,22 @@ export default function App() {
         <BrowserRouter>
             <Usertracker />
             <Routes>
-                <Route path="/" element={<Nav sharedValue={sharedValue} />}>
+                <Route path="/" element={<Homepage />} />
+                <Route path="product" element={<Products_display />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="admin" element={<Admin />} />
+                <Route path="login" element={<Login />} />
+                <Route path="forgot_password" element={<Forgotpassword />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}
+{/* <Route path="/" element={<Homepage setSharedValue={setSharedValue} />}>
+                    <Route path="/" element={<Nav sharedValue={sharedValue} />}>
                     <Route index element={<Homepage setSharedValue={setSharedValue} />} />
                     <Route path="product" element={<Products_display setSharedValue={setSharedValue} />} />
                     <Route path="signup" element={<Signup />} />
                     <Route path="admin" element={<Admin setSharedValue={setSharedValue} />} />
                     <Route path="login" element={<Login />} />
                     <Route path="forgot_password" element={<Forgotpassword />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
-}
+                </Route> */}

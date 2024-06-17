@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-export default function Checksession(url, setSharedValue) {
+export default function Checksession(url) {
+    const [sharedValue, setSharedValue] = useState({
+        name: "",
+        email: "",
+        password: ""
+    });
     const [user, setuser] = useState(null)
     useEffect(() => {
         (async () => {
@@ -31,6 +36,6 @@ export default function Checksession(url, setSharedValue) {
                 console.error('Error fetching data:', error);
             }
         })();
-    }, [url, setSharedValue]);
-    return user
+    }, [url]);
+    return sharedValue
 }

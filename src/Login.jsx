@@ -3,8 +3,10 @@ import './css/Signup.css'
 import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
+import Navbar from './components/Navbar';
+import Checksession from './hooks/Checksession';
 function Login() {
+    const user_exist = Checksession('/session_check');
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: '',
@@ -37,21 +39,24 @@ function Login() {
     };
 
     return (
-        <div className='Signup_outer'>
-            {/* {users.map(user=>(
-                    <h1>{user.username}</h1>
-                ))} */}
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                <label>Password</label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                <button type="submit">Submit</button>
-            </form>
-            <div className='forgot-signup'>
-                <Link to="/forgot_password">Forgot password?</Link>
-                <Link to="/signup">Signup</Link>
+        <div>
+            <Navbar user_data={user_exist} />
+            <div className='Signup_outer'>
+                {/* {users.map(user=>(
+                        <h1>{user.username}</h1>
+                    ))} */}
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>Email:</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                    <label>Password</label>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                    <button type="submit">Submit</button>
+                </form>
+                <div className='forgot-signup'>
+                    <Link to="/forgot_password">Forgot password?</Link>
+                    <Link to="/signup">Signup</Link>
+                </div>
             </div>
         </div>
     );

@@ -4,12 +4,16 @@ import icon from "../images/Icon.png"
 import "../css/Navbar.css"
 import axios from 'axios';
 
-export default function Navbar({ sharedValue }) {
+export default function Navbar({ user_data }) {
     var logedin = false;
-    console.log(sharedValue.email, sharedValue.password, sharedValue.name)
-    if (sharedValue.email !== "") {
+    var admin = false;
+    console.log(user_data.email, user_data.password, user_data.name)
+    if (user_data.email !== "") {
         logedin = true;
         console.log("inside nav")
+    }
+    if (user_data.email === "admin@gmail.com") {
+        admin = true;
     }
 
     const logout = () => {
@@ -38,6 +42,7 @@ export default function Navbar({ sharedValue }) {
                     <ul className='list_items'>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/product">Products</Link></li>
+                        {admin && <li><Link to="/admin">Admin</Link></li>}
                     </ul>
                 </div>
 
@@ -47,7 +52,7 @@ export default function Navbar({ sharedValue }) {
                 </div>
                 }
                 {logedin && <div className='signin_login'>
-                    <button className='sign_button'>{sharedValue.name}</button>
+                    <button className='sign_button'>{user_data.name}</button>
                     <button onClick={logout} className='login_button'>logout</button>
                 </div>
                 }

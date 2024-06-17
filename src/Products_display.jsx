@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Productdisplaycard from "./components/Productdisplaycard"
 // import im from "./images/rafiki.png"
 import Createitem from "./components/Createitem"
+import Navbar from './components/Navbar';
 import Checksession from './hooks/Checksession';
 
-export default function Products_display({ setSharedValue }) {
+export default function Products_display() {
+    const user_check = Checksession('/session_check');
     const [users, setUsers] = useState([]);
-    const user_exist = Checksession('/session_check', setSharedValue);
-
+    var user_exist = false
+    if (user_check.email == "admin@gmail.com") {
+        user_exist = true;
+    }
     console.log("user_exists", user_exist)
     useEffect(() => {
         const fetchData = async () => {
@@ -44,12 +48,14 @@ export default function Products_display({ setSharedValue }) {
         )
     })
     return (
-        <div className='all_outer_product_data' >
-            {user_exist && <Createitem data={users} />}
-            <div className='outer_product_data'>
-                {product_list}
+        <div>
+            <Navbar user_data={user_check} />
+            <div className='all_outer_product_data' >
+                {user_exist && <Createitem data={users} />}
+                <div className='outer_product_data'>
+                    {product_list}
+                </div>
             </div>
-
         </div>
 
     )
